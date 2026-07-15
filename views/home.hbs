@@ -1,0 +1,144 @@
+<main>
+    <div class="hero">
+        <div class="container">
+            <div class="left">
+                <h1 class="h1">
+                    Hi, I'm <b>Julia&nbsp;Walker</b>.
+                    <br>Web Developer
+                </h1>
+                <p class="h3">
+                    Specialized in <abbr title="Accessibility">a11y</abbr>
+                    and Core Web Vitals
+                </p>
+                <div>
+                    <a href="/contact" class="btn btn-primary">Contact Me</a>
+                    <a href="/about" class="btn btn-secondary">About Me</a>
+                </div>
+            </div>
+            <div class="right">
+                <div class="pattern-bg"></div>
+                <div class="img-box">
+                    <img src="/hero.png" alt="Julia Walker" class="hero-img">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <div class="blog">
+                <h2 class="h2">Latest Blog Post</h2>
+                <div class="blog-card-group">
+                    {{#each blogs}}
+                    <div class="blog-card">
+
+                        <div class="blog-card-banner">
+                            <img src="{{this.img}}" alt="{{this.name}}" width="250" class="blog-banner-img">
+                        </div>
+
+                        <div class="blog-content-wrapper">
+                            <button class="blog-topic text-tiny">{{this.tag}}</button>
+                            <h3>
+                                <a href="/blogs/{{this.slug}}" class="h3">
+                                    {{this.name}}
+                                </a>
+                            </h3>
+                            <p class="blog-text">
+                                {{this.content}}
+                            </p>
+                            <div class="wrapper-flex">
+                                <div class="profile-wrapper">
+                                    <img src="{{this.author_img}}" alt="{{this.author_name}}" width="50">
+                                </div>
+                                <div class="wrapper">
+                                    <a href="#" class="h4">{{this.author_name}}</a>
+                                    <p class="text-sm">
+                                        <time datetime="{{dateFormat updatedAt " dddd, DD-MM-YYYY"}}">{{dateFormat
+                                            updatedAt "dddd, DD-MM-YYYY"}}</time>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                <button class="btn load-more">Load More</button>
+            </div>
+            <div class="aside">
+                <div class="topics">
+                    <h2 class="h2">Topics</h2>
+                    <a href="#" class="topic-btn">
+                        <div class="icon-box">
+                            <ion-icon name="server-outline"></ion-icon>
+                        </div>
+                        <p>Database</p>
+                    </a>
+                    <a href="#" class="topic-btn">
+                        <div class="icon-box">
+                            <ion-icon name="accessibility-outline"></ion-icon>
+                        </div>
+                        <p>Accessibility</p>
+                    </a>
+                    <a href="#" class="topic-btn">
+                        <div class="icon-box">
+                            <ion-icon name="rocket-outline"></ion-icon>
+                        </div>
+                        <p>Web Performance</p>
+                    </a>
+                </div>
+                <div class="tags">
+                    <h2 class="h2">Tags</h2>
+                    <div class="wrapper">
+                        <button class="hashtag">#mongodb</button>
+                        <button class="hashtag">#nodejs</button>
+                        <button class="hashtag">#a11y</button>
+                        <button class="hashtag">#mobility</button>
+                        <button class="hashtag">#inclusion</button>
+                        <button class="hashtag">#webperf</button>
+                        <button class="hashtag">#optimize</button>
+                        <button class="hashtag">#performance</button>
+                    </div>
+                </div>
+                <div class="contact">
+                    <h2 class="h2">Let's Talk</h2>
+                    <div class="wrapper">
+                        <p>
+                            Do you want to learn more about how I can help your company overcome problems? Let us have a
+                            conversation.
+                        </p>
+                        <ul class="social-link">
+                            <li>
+                                <a href="#" class="icon-box discord">
+                                    <ion-icon name="logo-discord"></ion-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="icon-box twitter">
+                                    <ion-icon name="logo-twitter"></ion-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="icon-box facebook">
+                                    <ion-icon name="logo-facebook"></ion-icon>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="newsletter">
+                    <h2 class="h2">Newsletter</h2>
+                    <div class="wrapper">
+                        <p>
+                            Subscribe to our newsletter to be among the first to keep up with the latest updates.
+                        </p>
+                        <form action="#">
+                            <input type="email" name="email" placeholder="Email Address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
