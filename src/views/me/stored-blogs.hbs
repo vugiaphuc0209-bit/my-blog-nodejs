@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="flex-wrapper">
+        <div class="mt-4">
+            <h2 class="h2">Danh sách khoá học của tôi</h2>
+            <table class="table mt-4">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Tag</th>
+                        <th scope="col" colspan="2">Updated Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each blogs}}
+                    <tr>
+                        <th>
+                            <p class="blog-text">{{sum @index 1}}</p>
+                        </th>
+                        <td>
+                            <p class="blog-text">{{this.name}}</p>
+                        </td>
+                        <td>
+                            <p class="blog-text">{{this.tag}}</p>
+                        </td>
+                        <td>
+                            <p class="blog-text">{{dateFormat updatedAt "DD-MM-YYYY"}}</p>
+                        </td>
+                        <td>
+                            <a href="/blogs/{{this._id}}/edit" class="footer-link">Edit |</a>
+                            <a href="" class="footer-link" data-bs-toggle="modal" data-bs-target="#delete-blogs-modal"
+                                data-id="{{this._id}}">| Delete</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    {{!-- Xác nhận xóa --}}
+    <div id="delete-blogs-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete the blog !</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure to delete ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-delete-blogs" type="button" class="btn btn-primary">Confirm</button>
+                    <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- Delete hidden form --}}
+    <form name="delete-blogs-form" method="POST" action=""></form>
+</div>
+
+
+<script>
+    var delRow = document.getElementById('delete-blogs-modal');
+    var btnDeleteblogs = document.getElementById('btn-delete-blogs');
+    var blogsID;
+    var deleteForm = document.forms['delete-blogs-form'];
+    if (delRow) {
+        delRow.addEventListener('show.bs.modal', event => {
+            var button = event.relatedTarget;
+            blogsID = button.getAttribute('data-id');
+        });
+
+        btnDeleteblogs.onclick = () => {
+            deleteForm.action = '/blogs/' + blogsID + '?_method=DELETE';
+            deleteForm.submit();
+        };
+    } 
+</script>

@@ -1,10 +1,11 @@
 {
-  "name": "blog-project",
+  "name": "blog-project2",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "watch": "sass --watch src/scss/app.scss public/css/app.css"
+    "start": "nodemon src/index.js",
+    "watch": "sass --watch src/scss/app.scss src/public/css/app.css",
+    "dev": "concurrently \"npm run start\" \"npm run watch\""
   },
   "keywords": [],
   "author": "",

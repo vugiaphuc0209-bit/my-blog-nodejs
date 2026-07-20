@@ -1,0 +1,48 @@
+<div class="main">
+    <div class="container my-5">
+        <div class="search-box-wrapper mb-5">
+            <h2 class="h2">Tìm kiếm bài viết</h2>
+            <form action="/search" method="GET" class="mt-4">
+                <div class="form-group">
+                    <label for="search-input" class="font-weight-bold">Từ khóa</label>
+                    <input type="text" name="q" value="{{query}}" class="form-control" id="search-input" placeholder="Nhập từ khóa tìm kiếm...">
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Tìm kiếm</button>
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="search-results mt-5">
+            {{#if query}}
+                <h3 class="h4 mb-4">Kết quả tìm kiếm cho từ khóa: <span class="text-primary">"{{query}}"</span></h3>
+                
+                {{#if blogs.length}}
+                    <div class="row">
+                        {{#each blogs}}
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <span class="badge badge-info mb-2">{{this.tag}}</span>
+                                        <h4 class="card-title h5 font-weight-bold">{{this.name}}</h4>
+                                        <p class="card-text text-muted">{{this.content}}</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">Tác giả: {{this.author_name}}</small>
+                                        <a href="/blog/{{this.slug}}" class="btn btn-sm btn-outline-primary">Đọc tiếp</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                {{else}}
+                    <div class="alert alert-warning mt-3" role="alert">
+                        Không tìm thấy bài viết nào phù hợp với từ khóa của bạn.
+                    </div>
+                {{/if}}
+            {{else}}
+                <p class="text-muted italic">Hãy nhập từ khóa ở trên để bắt đầu tìm kiếm bài viết.</p>
+            {{/if}}
+        </div>
+    </div>
+</div>

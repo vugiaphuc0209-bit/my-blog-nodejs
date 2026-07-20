@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="newsletter">
+        <h2 class="h2">Update the blog</h2>
+        <form method="POST" action="/blogs/{{blogs._id}}?_method=PUT">
+            <div class="wrapper">
+                <p for="name">Name</p>
+                <input type="text" class="form-control" id="name" value="{{blogs.name}}" name="name">
+            </div>
+            <div class="wrapper">
+                <p for="content" class="form-label">Content</p>
+                <textarea type="text" class="form-control" id="content" name="content"
+                    rows="4">{{blogs.content}}</textarea>
+            </div>
+            <div class="wrapper">
+                <p for="tag" class="form-label">Tag</p>
+                <input type="" class="form-control" id="tag" value="{{blogs.tag}}" name="tag">
+            </div>
+            <div class="wrapper">
+                <p for="img" class="form-label">Image Blog Link</p>
+                <input type="text" class="form-control" id="img" value="{{blogs.img}}" name="img">
+            </div>
+            <div class="wrapper">
+                <p for="author_img" class="form-label">Author Image Link</p>
+                <input type="text" class="form-control" id="author_img" value="{{blogs.author_img}}" name="author_img">
+            </div>
+            <div class="wrapper">
+                <p for="author_name" class="form-label">Author Name</p>
+                <input type="text" class="form-control" id="author_name" value="{{blogs.author_name}}"
+                    name="author_name">
+            </div>
+            <div class="justify-content-end">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+
+        </form>
+    </div>
+</div>

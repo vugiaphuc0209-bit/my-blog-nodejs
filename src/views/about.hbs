@@ -1,0 +1,26 @@
+<div class="main">
+    <div class="container my-5">
+        <h2 class="h2">About Page</h2>
+        <br />
+        <p class="blog-text">
+            Odoo is a multi-tenant system: a single Odoo system may run and serve a number of database instances. It is
+            also highly customizable, with customizations (starting from the modules being loaded) depending on the
+            “current database”.
+            <br /><br />
+            This is not an issue when working with the backend (web client) as a logged-in company user: the database
+            can be selected when logging in, and customizations loaded afterwards.
+            <br /><br />
+            However it is an issue for non-logged users (portal, website) which aren’t bound to a database: Odoo needs
+            to know which database should be used to load the website page or perform the operation. If multi-tenancy is
+            not used that is not an issue, there’s only one database to use, but if there are multiple databases
+            accessible Odoo needs a rule to know which one it should use.
+            <br /><br />
+            That is one of the purposes of --db-filter: it specifies how the database should be selected based on the
+            hostname (domain) that is being requested. The value is a regular expression, possibly including the
+            dynamically injected hostname (%h) or the first subdomain (%d) through which the system is being accessed.
+            <br /><br />
+            For servers hosting multiple databases in production, especially if website is used, dbfilter must be set,
+            otherwise a number of features will not work correctly.
+        </p>
+    </div>
+</div>
