@@ -34,6 +34,10 @@ app.get('/search', (req, res) => {
   res.render('search');
 });
 
+app.get('/blogs/create', (req, res) => {
+  res.render('create');
+});
+
 // 4. Khởi động Server
 app.listen(port, () => {
   console.log(`Server đang chạy tại http://localhost:${port}`);
