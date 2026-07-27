@@ -1,42 +1,21 @@
 const express = require('express');
-const { engine } = require('express-handlebars'); // Đưa require lên đầu trang cho sạch sẽ
+const { engine } = require('express-handlebars');
 const app = express();
 const port = 3000;
 
-// 1. Cấu hình Handlebars (Phải đặt TRƯỚC các route app.get)
+// Nạp hệ thống định tuyến (Router) mới vào
+const route = require('./routes');
+
+// 1. Cấu hình Handlebars
 app.engine('hbs', engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
-app.set('views', './views'); // Chỉ định thư mục chứa giao diện
+app.set('views', './views');
 
-// 2. Cấp quyền truy cập cho thư mục public (CSS, hình ảnh, js client)
+// 2. Cấp quyền truy cập cho thư mục public
 app.use(express.static('public'));
 
-// 3. Định nghĩa các Routes
-app.get('/', (req, res) => {
-  res.render('home'); // Lúc này Express đã biết tìm file 'home.hbs' trong thư mục './views'
-});
-
-// Route xử lý cho trang About
-app.get('/about', (req, res) => {
-  res.render('about');
-});
-
-// Route xử lý cho trang Liên hệ
-app.get('/contact', (req, res) => {
-  res.render('contact');
-});
-
-// Route hiển thị trang Tìm kiếm
-app.get('/search', (req, res) => {
-  // req.query chứa toàn bộ các parameters trên URL
-  console.log("Từ khóa tìm kiếm:", req.query.q);
-
-  res.render('search');
-});
-
-app.get('/blogs/create', (req, res) => {
-  res.render('create');
-});
+// 3. Khởi tạo các tuyến đường (Thay thế toàn bộ app.get cũ)
+route(app);
 
 // 4. Khởi động Server
 app.listen(port, () => {

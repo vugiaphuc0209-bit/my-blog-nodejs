@@ -1,0 +1,24 @@
+{
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
+  },
+  "connections": [
+    {
+      "id": "af27a7fd-1aab-4c79-a428-3846756bb207",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1785116702472"
+        }
+      },
+      "favorite": {
+        "name": "phucdaden"
+      },
+      "savedConnectionType": "recent",
+      "connectionOptions": {
+        "connectionString": "mongodb://localhost:27017/",
+        "oidc": {}
+      }
+    }
+  ]
+}
